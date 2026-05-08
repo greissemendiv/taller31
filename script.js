@@ -39,12 +39,31 @@ function drawLine(x1, y1, x2, y2, color="white"){
     }
 }
 
+function drawViewport(xmin, ymin, xmax, ymax){
+
+    drawLine(xmin, ymin, xmax, ymin, "yellow");
+
+    drawLine(xmax, ymin, xmax, ymax, "yellow");
+
+    drawLine(xmax, ymax, xmin, ymax, "yellow");
+
+    drawLine(xmin, ymax, xmin, ymin, "yellow");
+}
+
 function drawAxes(){
 
     drawLine(0,0,canvas.width,0,"white");
+
     drawLine(0,0,0,canvas.height,"white");
 }
 
 drawAxes();
+
+const xmin = parseInt(document.getElementById("xmin").value);
+const ymin = parseInt(document.getElementById("ymin").value);
+const xmax = parseInt(document.getElementById("xmax").value);
+const ymax = parseInt(document.getElementById("ymax").value);
+
+drawViewport(xmin, ymin, xmax, ymax);
 
 drawLine(50,50,300,200,"red");
